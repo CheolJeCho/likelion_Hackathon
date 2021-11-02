@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+        <title>오늘의 컴포트 푸드는?</title>
+
+        <!-- css -->
+        <!-- Bootstrap 5.1.3 -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='/lib/bootstrap-5.1.3/css/bootstrap.min.css') }}">
+        
+        <!-- js -->
+        <!-- Bootstrap 5.1.3 -->
+        <script type="text/javascript" src="{{ url_for('static', filename='/lib/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
+        <!-- jQuery -->
+        <script type="text/javascript" src="{{ url_for('static', filename='/lib/jquery/dist/jquery.min.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                    <span class="fs-4">오늘의 컴포트 푸드는?</span>
+                </a>
+            </header>
+
+            <div class="mb-3">
+                <form id="imgForm">
+                    <label for="formFile" class="form-label">나의 기분을 등록해 주세요!</label>
+                    <input class="form-control" type="file" id="formFile" name="image" accept="image/*">
+                </form>
+            </div>
+
+            <div id="resultDiv">
+                <p class="text-center">오늘의 당신의 기분은</p>
+                <img src="" class="img-thumbnail" style="display:block; margin:0px auto;" id="myImg" alt="내가 등록한 사진">
+                <p class="text-center fs-3 fw-bolder" id="emotion">???</p>
+                <p class="text-center">이군요.</p>
+                <p class="text-center">이에, 당신에게 추천하는 컴포트 푸드는</p>
+                <img src="{{ url_for('static', filename='img/neutralFood.jpeg') }}" class="img-thumbnail" style="display:block; margin:0px auto;" id="foodImg" alt="컴포트 푸드 사진">
+                <p class="text-center fs-3 fw-bolder" id="food">???</p>
+                <!-- <p class="text-center">입니다.</p> -->
+            </div>
+
+            <!-- [추가 사항] 1. 그 외 음식 목록 -->
+
+            <!-- [추가 사항] 2. 음식과 관련된 음식점 추천 -->
+
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                  <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                  </a>
+                  <span class="text-muted">© 2021 멋쟁이 사자처럼 해커톤</span>
+                </div>
+              </footer>
+        </div>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/comfortFood.js') }}"></script>
+        <script>
+            // $SCRIPT_ROOT = {{ request.script_root|tojson }};
+
+            $( document ).ready(function() {
+                $comfortFood.initEvt();
+            });
+        </script>
+    </body>
+</html>
