@@ -1,5 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
+import os
+import sys
 import requests
 
 app = Flask(__name__)
@@ -14,7 +16,7 @@ def ncloud_face():
     client_id = "hisrmopk72"
     client_secret = "OVFnfHyy0JbVqpjFS6goeTPlKQgiNetvuPi2lsL0"
     url = "https://naveropenapi.apigw.ntruss.com/vision/v1/face"
-    files = {'image': request.files['image']}
+    files = {'image':'image', 'image': request.files['image']}
     headers = {'X-NCP-APIGW-API-KEY-ID': client_id, 'X-NCP-APIGW-API-KEY': client_secret }
     response = requests.post(url,  files=files, headers=headers)
     rescode = response.status_code
