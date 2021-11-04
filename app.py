@@ -11,11 +11,11 @@ def main():
 
 @app.route("/api/naver/face", methods=['POST'])
 def ncloud_face():
-    client_id = "xbl3OdX0yyDjwEqyoaTq"
-    client_secret = "X0Y9NPZ28v"
-    url = "https://openapi.naver.com/v1/vision/face"
+    client_id = "hisrmopk72"
+    client_secret = "OVFnfHyy0JbVqpjFS6goeTPlKQgiNetvuPi2lsL0"
+    url = "https://naveropenapi.apigw.ntruss.com/vision/v1/face"
     files = {'image': request.files['image']}
-    headers = {'X-Naver-Client-Id': client_id, 'X-Naver-Client-Secret': client_secret }
+    headers = {'X-NCP-APIGW-API-KEY-ID': client_id, 'X-NCP-APIGW-API-KEY': client_secret }
     response = requests.post(url,  files=files, headers=headers)
     rescode = response.status_code
     if(rescode==200):
