@@ -21,7 +21,7 @@ const $comfortFood = (function() {
 
         $.ajax({
             type: "post",
-            url: "/api/naver/face",
+            url: $SCRIPT_ROOT + "/api/naver/face",
             dataType: "json",
             data: formData,
             contentType: false,
