@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/cheoljecho/Desktop/likelion/venv"
+VIRTUAL_ENV="/Users/cheoljecho/Documents/FlutterWorkSpace/likelion_Hackathon/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
