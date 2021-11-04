@@ -9,55 +9,121 @@
         <!-- css -->
         <!-- Bootstrap 5.1.3 -->
         <link rel="stylesheet" href="{{ url_for('static', filename='/lib/bootstrap-5.1.3/css/bootstrap.min.css') }}">
+        <!-- Style -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+        <!-- Responsive -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/responsive.css') }}">
+        <!-- Scrollbar Custom css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/jquery.mCustomScrollbar.min.css') }}">
+        <!-- Tweaks for older IEs-->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"> -->
+        <!-- fevicon -->
+        <link rel="icon" href="{{ url_for('static', filename='/img/fevicon.png') }}" type="image/gif">
         
         <!-- js -->
         <!-- Bootstrap 5.1.3 -->
         <script type="text/javascript" src="{{ url_for('static', filename='/lib/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
         <!-- jQuery -->
         <script type="text/javascript" src="{{ url_for('static', filename='/lib/jquery/dist/jquery.min.js') }}"></script>
+        <!-- Design -->
+        <script type="text/javascript" src="{{ url_for('static', filename='/js/cmm/popper.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='/js/cmm/plugin.js') }}"></script>
+        <!-- sidebar -->
+        <script type="text/javascript" src="{{ url_for('static', filename='/js/cmm/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='/js/cmm/custom.js') }}"></script>
+        <!-- <script type="text/javascript" src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script> -->
     </head>
-    <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                    <span class="fs-4">오늘의 컴포트 푸드는?</span>
-                </a>
-            </header>
-
-            <div class="mb-3">
-                <form id="imgForm">
-                    <label for="formFile" class="form-label">나의 기분을 등록해 주세요!</label>
-                    <input class="form-control" type="file" id="formFile" name="image" accept="image/*">
-                </form>
-            </div>
-
-            <div id="resultDiv">
-                <p class="text-center">오늘의 당신의 기분은</p>
-                <img src="" class="img-thumbnail" style="display:block; margin:0px auto;" id="myImg" alt="내가 등록한 사진">
-                <p class="text-center fs-3 fw-bolder" id="emotion">???</p>
-                <p class="text-center">이군요.</p>
-                <p class="text-center">이에, 당신에게 추천하는 컴포트 푸드는</p>
-                <img src="{{ url_for('static', filename='img/neutralFood.jpeg') }}" class="img-thumbnail" style="display:block; margin:0px auto;" id="foodImg" alt="컴포트 푸드 사진">
-                <p class="text-center fs-3 fw-bolder" id="food">???</p>
-                <!-- <p class="text-center">입니다.</p> -->
-            </div>
-
-            <!-- [추가 사항] 1. 그 외 음식 목록 -->
-
-            <!-- [추가 사항] 2. 음식과 관련된 음식점 추천 -->
-
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <div class="col-md-4 d-flex align-items-center">
-                  <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                    <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-                  </a>
-                  <span class="text-muted">© 2021 멋쟁이 사자처럼 해커톤</span>
-                </div>
-              </footer>
+    <body class="main-layout">
+        <!-- loader -->
+        <div class="loader_bg">
+            <div class="loader"><img src="{{ url_for('static', filename='/img/loading.gif') }}" alt="#" /></div>
         </div>
+        <!-- end loader -->
+
+        <!-- header -->
+        <header>
+            <!-- header inner -->
+            <div class="head_top">
+                <div class="header">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                                <div class="full">
+                                    <div class="center-desk">
+                                        <div class="logo">
+                                            <a href="#"><img src="https://imgur.com/MgsqiP9.png" alt="#" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                                <div class="collapse navbar-collapse" id="navbarsExample04">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#contact">About</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end header inner -->
+
+            <!-- banner -->
+            <section class="banner_main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <div class="text-img">
+                                <figure><img src="https://imgur.com/8eFren8.png" alt="#" /></figure>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="text-bg">
+                                <h1>오늘 뭐 먹지? 사진 넣으면 알려줄게!</h1>
+                                <form id="imgForm">
+                                    <label for="formFile" class="form-label">사진 업로드</label>
+                                    <input class="form-control" type="file" id="formFile" name="image" accept="image/*">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end banner -->
+        </header>
+        <!-- end header -->
+        
+        <div class="store">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="titlepage">
+                            <h2>얼굴 표정으로 알아보는 <span class="red">오늘의 음식</span> </h2>
+                            <p>표정이 있는 얼굴 사진을 업로드 해보세요. 뭘 먹으면 좋을지 추천해 드립니다.</p>
+                        </div>
+                    </div>
+
+                    <div id="resultDiv">
+                        <p class="text-center fs-4" style="margin:10px;">오늘의 당신의 기분은</p>
+                        <img src="" class="img-thumbnail" style="display:block; margin:0px auto; width:25%;" id="myImg" alt="내가 등록한 사진">
+                        <p class="text-center fs-4 fw-bolder" style="margin:10px;" id="emotion">???</p>
+                        <p class="text-center fs-4" style="margin:10px;">이군요.</p>
+                        <p class="text-center fs-4" style="margin:10px;">이에, 당신에게 추천하는 컴포트 푸드는</p>
+                        <img src="{{ url_for('static', filename='img/neutralFood.jpeg') }}" class="img-thumbnail" style="display:block; margin:0px auto; width:25%;" id="foodImg" alt="컴포트 푸드 사진">
+                        <p class="text-center fs-4" style="margin:10px;" id="food">???</p>
+                        <!-- <p class="text-center">입니다.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script type="text/javascript" src="{{ url_for('static', filename='js/comfortFood.js') }}"></script>
         <script>
             // $SCRIPT_ROOT = {{ request.script_root|tojson }};
