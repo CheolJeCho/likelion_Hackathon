@@ -122,7 +122,7 @@
 
         <script type="text/javascript" src="{{ url_for('static', filename='js/comfortFood.js') }}"></script>
         <script>
-            $SCRIPT_ROOT = "{{ request.script_root|tojson }}";
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 
             $( document ).ready(function() {
                 $comfortFood.initEvt();
